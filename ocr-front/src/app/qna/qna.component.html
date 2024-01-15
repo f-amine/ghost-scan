@@ -1,0 +1,239 @@
+<section class="bg-white dark:bg-gray-900">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+    <h2
+      class="mb-8 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"
+    >
+      Frequently asked questions
+    </h2>
+    <div
+      class="grid pt-8 text-left border-t border-gray-200 md:gap-16 dark:border-gray-700 md:grid-cols-2"
+    >
+      <div>
+        <div class="mb-10">
+          <h3
+            class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white"
+          >
+            <svg
+              class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            How does the app process ID cards?
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400">
+            The app uses AI to detect, extract, and identify important
+            information. It employs four sophisticated models:
+            <a
+            target="_blank"
+              href="https://github.com/WongKinYiu/yolov7#instance-segmentation-with-ntu"
+              class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline"
+              >YOLO V7</a > for
+              
+            detecting and outlining ID cards,
+            <a
+            target="_blank"
+              href="https://arxiv.org/abs/1512.03385"
+              class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline"
+              >ResNet</a >
+              for cropping and
+            straightening,
+            <a
+            target="_blank"
+              href="https://github.com/WenmuZhou/DBNet.pytorch"
+              class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline"
+              >DBNET</a >
+              for text detection, and
+              <a
+              target="_blank"
+                href="https://github.com/clovaai/SATRN"
+                class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline"
+                >SATRN </a > for text
+            recognition. Finally,
+            <a
+            target="_blank"
+              href="https://cloud.google.com/vertex-ai/docs/generative-ai/model-reference/gemini"
+              class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline"
+              >Gemini Vision Pro </a >
+             is used for key information
+            extraction.
+          </p>
+        </div>
+        <div class="mb-10">
+          <h3
+            class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white"
+          >
+            <svg
+              class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            What measures are taken to ensure user data privacy?
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400">
+            The app doesn't store any data from the ID cards. In fact, it
+            doesn't use any database, ensuring complete data privacy and
+            security for the user.
+          </p>
+        </div>
+        <div class="mb-10">
+          <h3
+            class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white"
+          >
+            <svg
+              class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            How accurate is the app in processing ID cards?
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400">
+            The app is tested on 150 ID cards, including real and generated
+            ones, and has achieved an overall accuracy of 85%. The text
+            recognition feature alone has a higher accuracy rate of 94%.
+          </p>
+        </div>
+        <div class="mb-10">
+          <h3
+            class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white"
+          >
+            <svg
+              class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            What aspect of the app impacts its accuracy the most?
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400">
+            The key information extraction part of the process is the most
+            challenging and contributes to the variance in overall accuracy.
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="mb-10">
+          <h3
+            class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white"
+          >
+            <svg
+              class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            Is the app compatible with all versions of Moroccan ID cards?
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400">
+            Yes, the app is designed to be compatible with all versions of
+            Moroccan ID cards, ensuring broad usability.
+          </p>
+        </div>
+        <div class="mb-10">
+          <h3
+            class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white"
+          >
+            <svg
+              class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            Can the app process ID cards in different conditions, like low light
+            or wear and tear?
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400">
+            The app is engineered to handle various conditions, but optimal
+            results are obtained with well-lit and reasonably maintained ID
+            cards.
+          </p>
+        </div>
+        <div class="mb-10">
+          <h3
+            class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white"
+          >
+            <svg
+              class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            Is there any training required to use the app effectively?
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400">
+            The app is user-friendly and designed for ease of use, requiring
+            minimal to no training for efficient operation.
+          </p>
+        </div>
+        <div class="mb-10">
+          <h3
+            class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white"
+          >
+            <svg
+              class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            Who can benefit from using this app?
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400">
+            The app is ideal for businesses and organizations that require quick
+            and accurate data extraction from Moroccan ID cards, such as hotels,
+            car rental services, and financial institutions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
