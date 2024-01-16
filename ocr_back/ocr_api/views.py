@@ -50,16 +50,19 @@ def ocr(request):
     os.getenv("GOOGLE_API_KEY")
     genai.configure(api_key="AIzaSyB2qcLvhEpEM9DoQ5ISgA40CpBSjiGhYL0")
     input_prompt = """
-    # Example of a Moroccan name: Omar 
-    # Example of an ID number: AB123456
-    # Example of a Moroccan name in Arabic: عمر 
-    Given the image:
-    extract the values that contain a moroccan name  and an ID number in the format (2 letters then 6 numbers) ,
+    # Example of a Moroccan name: Amine Frira
+    # Example of an ID number: EE665597
+    # Example of a Moroccan name in Arabic:  أمين فريرا
+    The name in the morrocan ID card is located under "CARTE NATIONALE D'IDENTITE"
+    there is a first name and under it the last name gather them both in the name field (under the last name there is always a field called Née le don't include it).
+    The ID number is located under the picture.
+    The arabic name is located under the " البطاقة الوطنية للتعريف" and to the left of the image.
+    Given the ID card:
+    extract the values that contain a moroccan name  and an ID number in the format (2 letters then 6 numbers) and the id arabic name ,
     and return them as name=name_extracted and id=id_extracted arabic_name=arabic_name_extracted
     make sure to return only the the name,id and arabic_name don't return any other text:
                """
     image_data = input_image_setup(request.FILES.get('image'))
     response=get_gemini_response(input_prompt,image_data,'You are an expert in Moroccan ID cards, and you are asked to extract the name and ID number from the image below.')
-    print(response)
     data=parse_response(response)
     return JsonResponse(data, safe=False)

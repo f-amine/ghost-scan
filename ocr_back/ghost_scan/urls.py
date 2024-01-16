@@ -20,4 +20,5 @@ from django.urls import path,include
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('ghost-scan/', include('ocr_api.urls')),
+    path('api/', include('users.urls')),
 ]

@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-6&l^lt^tvy8m_o74t09ev#tux(_&4s$*cm94gq1%c1kd&&iq(d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost','127.0.0.1']
 CORS_ORIGIN_ALLOW_ALL=True
 CORS_ALLOW_CREDENTIALS=True
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'ocr_api',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -77,13 +78,13 @@ WSGI_APPLICATION = "ghost_scan.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation
@@ -126,3 +127,5 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+AUTH_USER_MODEL = "users.User"

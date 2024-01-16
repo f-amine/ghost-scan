@@ -1,90 +1,336 @@
-<nav class="bg-white border-gray-200 dark:bg-gray-900">
-  <div
-    class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
-  >
-    <a
-      href="https://flowbite.com/"
-      class="flex items-center space-x-3 rtl:space-x-reverse"
-    >
-      <img
-        src="https://i.postimg.cc/tRftxJVV/logonav.png"
-        class="h-20"
-        alt="Ghost Scan Logo"
-      />
-      <span
-        class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
-        >Ghost Scan</span
-      >
-    </a>
-    <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-      <button
-        type="button"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-      >
-        Get started
-      </button>
-      <button
-        data-collapse-toggle="navbar-cta"
-        type="button"
-        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-        aria-controls="navbar-cta"
-        aria-expanded="false"
-      >
-        <span class="sr-only">Open main menu</span>
-        <svg
-          class="w-5 h-5"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 17 14"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M1 1h15M1 7h15M1 13h15"
-          />
-        </svg>
-      </button>
+<header class="antialiased">
+  <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
+    <div class="flex flex-wrap justify-between items-center">
+      <div class="flex justify-start items-center">
+        <a href="/" class="flex mr-4">
+          <img src="https://i.postimg.cc/tRftxJVV/logonav.png" class="mr-3 h-12" alt="FlowBite Logo" />
+          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Ghost Scan</span>
+        </a>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:border-gray-700">
+            <li>
+              <a href="/"
+                class="block pl-10 pr-2 px-3 md:bg-transparent md:p-0 ml-10 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                aria-current="page">Home</a>
+            </li>
+            <li>
+              <a href="#scanner"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Scanner</a>
+            </li>
+            <li>
+              <a href="#plans"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Plans</a>
+            </li>
+            <li>
+              <a href="#faq"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">FAQ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="flex items-center lg:order-2">
+        <button *ngIf="!hasToken" data-modal-target="large-modal" data-modal-toggle="large-modal" type="button"
+          class="hidden sm:inline-flex items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-xs px-3 py-1.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+          <svg aria-hidden="true" class="mr-1 -ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+              clip-rule="evenodd"></path>
+          </svg>
+          Sign in
+        </button>
+        <div *ngIf="hasToken">
+          <!-- Notifications -->
+          <!-- Dropdown menu -->
+
+          <button type="button"
+            class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+            id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
+            <span class="sr-only">Open user menu</span>
+            <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+              alt="user photo" />
+          </button>
+          <!-- Dropdown menu -->
+          <div
+            class="hidden z-50 my-4 w-56 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+            id="dropdown">
+            <div class="py-3 px-4">
+              <span class="block text-sm font-semibold text-gray-900 dark:text-white">{{ user.firstname }} {{
+                user.lastname }}</span>
+              <span class="block text-sm text-gray-500 truncate dark:text-gray-400">{{ user.email }}</span>
+            </div>
+            <ul class="py-1 text-gray-500 dark:text-gray-400" aria-labelledby="dropdown">
+              <li>
+                <a href="/"
+                  class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">My
+                  profile</a>
+              </li>
+              <li>
+                <button data-modal-target="extralarge-modal" data-modal-toggle="extralarge-modal"
+                  class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
+                  Account settings
+                </button>
+              </li>
+            </ul>
+            <ul class="py-1 text-gray-500 dark:text-gray-400" aria-labelledby="dropdown">
+              <li>
+                <a href="#"
+                  class="flex items-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                  <svg class="mr-2 w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 20 18">
+                    <path
+                      d="M17.947 2.053a5.209 5.209 0 0 0-3.793-1.53A6.414 6.414 0 0 0 10 2.311 6.482 6.482 0 0 0 5.824.5a5.2 5.2 0 0 0-3.8 1.521c-1.915 1.916-2.315 5.392.625 8.333l7 7a.5.5 0 0 0 .708 0l7-7a6.6 6.6 0 0 0 2.123-4.508 5.179 5.179 0 0 0-1.533-3.793Z" />
+                  </svg>
+                  My API calls
+                </a>
+              </li>
+              <li>
+                <a data-modal-target="popup-modal" data-modal-toggle="popup-modal" href="#"
+                  class="flex items-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                  <svg class="mr-2 w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="m1.56 6.245 8 3.924a1 1 0 0 0 .88 0l8-3.924a1 1 0 0 0 0-1.8l-8-3.925a1 1 0 0 0-.88 0l-8 3.925a1 1 0 0 0 0 1.8Z" />
+                    <path
+                      d="M18 8.376a1 1 0 0 0-1 1v.163l-7 3.434-7-3.434v-.163a1 1 0 0 0-2 0v.786a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.786a1 1 0 0 0-1-1Z" />
+                    <path
+                      d="M17.993 13.191a1 1 0 0 0-1 1v.163l-7 3.435-7-3.435v-.163a1 1 0 1 0-2 0v.787a1 1 0 0 0 .56.9l8 3.925a1 1 0 0 0 .88 0l8-3.925a1 1 0 0 0 .56-.9v-.787a1 1 0 0 0-1-1Z" />
+                  </svg>
+                  Get API key
+                </a>
+              </li>
+              <li>
+                <a href="/#plans"
+                  class="flex justify-between items-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                  <span class="flex items-center">
+                    <svg class="mr-2 w-4 h-4 text-primary-600 dark:text-primary-500" aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                      <path
+                        d="m7.164 3.805-4.475.38L.327 6.546a1.114 1.114 0 0 0 .63 1.89l3.2.375 3.007-5.006ZM11.092 15.9l.472 3.14a1.114 1.114 0 0 0 1.89.63l2.36-2.362.38-4.475-5.102 3.067Zm8.617-14.283A1.613 1.613 0 0 0 18.383.291c-1.913-.33-5.811-.736-7.556 1.01-1.98 1.98-6.172 9.491-7.477 11.869a1.1 1.1 0 0 0 .193 1.316l.986.985.985.986a1.1 1.1 0 0 0 1.316.193c2.378-1.3 9.889-5.5 11.869-7.477 1.746-1.745 1.34-5.643 1.01-7.556Zm-3.873 6.268a2.63 2.63 0 1 1-3.72-3.72 2.63 2.63 0 0 1 3.72 3.72Z" />
+                    </svg>
+                    Subscribe
+                  </span>
+                  <svg class="w-2.5 h-2.5 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m1 9 4-4-4-4" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+            <ul class="py-1 text-gray-500 dark:text-gray-400" aria-labelledby="dropdown">
+              <li>
+                <a href="#" (click)="logout()"
+                  class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign
+                  out</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-    <div
-      class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-      id="navbar-cta"
-    >
-      <ul
-        class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
-      >
-        <li>
-          <a
-            href="#"
-            class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
-            aria-current="page"
-            >Home</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-            >About</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 d:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-            >Services</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-            >Contact</a
-          >
-        </li>
-      </ul>
+  </nav>
+</header>
+
+
+<div id="large-modal" tabindex="-1" aria-hidden="true"
+  class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+  <section class="bg-gray-50 dark:bg-gray-700">
+    <div class="flex flex-col items-center justify-center px-6 py-8 w-full max-w-md max-h-full">
+      <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+        <img class="w-8 h-8 mr-2" src="https://i.postimg.cc/tRftxJVV/logonav.png" alt="logo" />
+        Ghost Scan
+      </a>
+      <div
+        class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+          <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+            Sign in to your account
+          </h1>
+          <form (ngSubmit)="onSubmit()" class="space-y-4 md:space-y-6" action="#">
+            <div>
+              <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+              <input [formControl]="email" type="email" name="email" id="email"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="name@company.com" required="" />
+            </div>
+            <div>
+              <label for="password"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+              <input [formControl]="password" type="password" name="password" id="password" placeholder="••••••••"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                required="" />
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-start">
+                <div class="flex items-center h-5">
+                  <input id="remember" aria-describedby="remember" type="checkbox"
+                    class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                    required="" />
+                </div>
+                <div class="ml-3 text-sm">
+                  <label for="remember" class="text-gray-500 dark:text-gray-300">Remember me</label>
+                </div>
+              </div>
+              <a href="#" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot
+                password?</a>
+            </div>
+            <button type="submit"
+              class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+              Sign in
+            </button>
+            <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+              Don’t have an account yet?
+              <a href="#" data-modal-target="default-modal" data-modal-toggle="default-modal"
+                class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="default-modal" tabindex="-1"
+  class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+  <section class="bg-gray-50 dark:bg-gray-900">
+    <div class="flex flex-col items-center justify-center px-6 py-8 w-full max-w-md max-h-full">
+      <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+        <img class="w-8 h-8 mr-2" src="https://i.postimg.cc/tRftxJVV/logonav.png" alt="logo" />
+        Ghost Scan
+      </a>
+      <div
+        class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+          <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+            Create and account
+          </h1>
+          <form (ngSubmit)="onRegister()" class="space-y-4 md:space-y-6" action="#">
+            <div>
+              <label for="firstname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First
+                Name</label>
+              <input type="text" name="first_name" id="first_name" [formControl]="first_name"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="First Name" required />
+            </div>
+            <div>
+              <label for="lastname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last
+                Name</label>
+              <input type="text" name="last_name" id="lastname" [formControl]="last_name"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Last Name" required />
+            </div>
+            <div>
+              <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+              <input type="email" name="email" id="email" [formControl]="registerEmail"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="name@company.com" required />
+            </div>
+            <div>
+              <label for="password"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+              <input type="password" name="password" id="password" [formControl]="registerPassword"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="••••••••" required />
+            </div>
+            <div class="flex items-start">
+              <div class="flex items-center h-5">
+                <input id="terms" aria-describedby="terms" type="checkbox"
+                  class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                  required="" />
+              </div>
+              <div class="ml-3 text-sm">
+                <label for="terms" class="font-light text-gray-500 dark:text-gray-300">I accept the
+                  <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and
+                    Conditions</a></label>
+              </div>
+            </div>
+            <button type="submit"
+              class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+              Create an account
+            </button>
+            <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+              Already have an account?
+              <a href="#" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Login here</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+
+<div id="popup-modal" tabindex="-1"
+  class="hidden overflow-y-auto fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-modal md:inset-0 h-[calc(100%-1rem)] max-h-full">
+  <div class="relative p-4 w-full max-w-2xl max-h-full overflow-y-auto">
+    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+      <button type="button"
+        class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+        data-modal-hide="popup-modal">
+        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+        </svg>
+        <span class="sr-only">Close modal</span>
+      </button>
+      <div class="p-4 md:p-5 text-center">
+        <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Moroccan ID OCR App automatically
+          associates each new API key with a unique project environment to ensure isolated data handling and enhanced
+          security. You also have the option to integrate the API key into an existing project environment. Please note,
+          all projects and API usage adhere strictly to our Privacy Policy and Terms of Service.</h3>
+
+
+
+        <input type="hidden" id="hs-clipboard-tooltip-on-hover" value="npm install preline">
+
+        <button type="button"
+          class="hs-tooltip relative py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-mono rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 overflow-hidden text-overflow-ellipsis whitespace-nowrap"
+          (click)="copyToClipboard(user.api_key)">
+
+          {{ user.api_key }}
+          <span class="border-s ps-3.5 dark:border-gray-700">
+            <svg *ngIf="!isCopied" class="w-4 h-4 group-hover:rotate-6 transition" xmlns="http://www.w3.org/2000/svg"
+              width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+            </svg>
+
+            <svg *ngIf="isCopied" class="w-4 h-4 text-blue-600 rotate-6" xmlns="http://www.w3.org/2000/svg" width="24"
+              height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </span>
+
+          <span
+            class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity hidden invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-lg shadow-sm dark:bg-slate-700"
+            role="tooltip">
+            <span class="js-clipboard-success-text">Copy</span>
+          </span>
+        </button>
+
+        <h3 class="my-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+          To utilize the Moroccan ID OCR App API, start by obtaining your unique API key. Once you have your key, you
+          can make a POST request to the endpoint <strong> /ghost-scan/ocr/</strong>. 
+          <br>Ensure your request includes the following data
+          format: {{ '{' }} 'image': [your_image_file], 'api_key': [your_api_key] {{ '}' }}. 
+          <br>This format is essential
+          for the API to correctly process your request and perform the OCR on the provided Moroccan ID card image.
+        </h3>
+
+        <button data-modal-hide="popup-modal" type="button"
+          class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">No,
+          cancel</button>
+      </div>
     </div>
   </div>
-</nav>
+</div>

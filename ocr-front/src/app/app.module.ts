@@ -12,6 +12,8 @@ import { FooterComponent } from './footer/footer.component';
 import { ScannerComponent } from './scanner/scanner.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PricingComponent } from './pricing/pricing.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     QnaComponent,
     OurTeamComponent,
     FooterComponent,
-    ScannerComponent
+    ScannerComponent,
+    PricingComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
