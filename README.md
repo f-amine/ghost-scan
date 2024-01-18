@@ -53,7 +53,9 @@ If you prefer not to use Docker, you can run the application natively. Ensure yo
 ## Demo
 Check out the demo video attached here to see Ghost Scan in action.
 
-https://github.com/f-amine/ghost-scan/assets/58664365/c3cda057-3a8d-47d4-bcb6-84ab2c8c7b03
+https://github.com/f-amine/ghost-scan/assets/58664365/a5e94117-0576-4bb1-aab2-e3ed07b164ac
+
+
 
 ## Contributing
 
