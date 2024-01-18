@@ -32,7 +32,7 @@ export class ScannerComponent {
       const formData = new FormData();
       formData.append('image', this.imageFile);
 
-      this.http.post<any>('http://localhost:8000/ghost-scan/ocr/', formData).subscribe(
+      this.http.post<any>('http://34.125.240.115:8000/ghost-scan/ocr/', formData).subscribe(
         (response: any) => {
           this.userData = response;
           this.isLoading = false;

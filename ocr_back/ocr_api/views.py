@@ -7,8 +7,6 @@ import google.generativeai as genai
 import json
 from django.http import JsonResponse
 import os
-import os
-from PIL import Image
 from dotenv import load_dotenv
 import google.generativeai as genai
 

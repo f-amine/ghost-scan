@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  front:
+    build:
+      context: ./ocr-front
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    volumes:
+      - ./ocr-front:/app
+    depends_on:
+      - back
+  back:
+    build:
+      context: ./ocr_back
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    volumes:
+      - ./ocr_back:/app

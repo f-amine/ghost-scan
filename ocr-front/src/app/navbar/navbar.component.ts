@@ -32,7 +32,7 @@ export class NavbarComponent {
       const token = this.cookieService.get('jwt');
       this.http
         .get(
-          `http://localhost:8000/api/check-token-validity/${token}`
+          `http://34.125.240.115:8000/api/check-token-validity/${token}`
         )
         .subscribe((response: any) => {
           if (response.message.trim().toLowerCase() === 'not valid') {
@@ -41,7 +41,7 @@ export class NavbarComponent {
           } else {
             this.http
               .post(
-                `http://localhost:8000/api/user`,
+                `http://34.125.240.115:8000/api/user`,
                 { 'jwt': token }
               )
               .subscribe((response: any) => {
@@ -56,7 +56,7 @@ export class NavbarComponent {
 
   onSubmit() {
     this.http
-      .post('http://localhost:8000/api/login', {
+      .post('http://34.125.240.115:8000/api/login', {
         email: this.email.value,
         password: this.password.value,
       })
@@ -69,7 +69,7 @@ export class NavbarComponent {
   }
   onRegister() {
     this.http
-      .post('http://localhost:8000/api/register', {
+      .post('http://34.125.240.115:8000/api/register', {
         first_name: this.first_name.value,
         last_name: this.last_name.value,
         email: this.registerEmail.value,
